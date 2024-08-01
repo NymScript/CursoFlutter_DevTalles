@@ -1,5 +1,3 @@
-import 'dart:html_common';
-import 'dart:mirrors';
 
  //Tod estrictamente relacionado a los animales
 abstract class Animal {}

@@ -1,9 +1,4 @@
 
-/* 
-  
- */
-import 'dart:ffi';
-
 void main(){
 
     final windPlant = WindPlant(initialEnergy: 9 );

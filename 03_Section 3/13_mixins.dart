@@ -1,3 +1,4 @@
+import 'dart:html_common';
 import 'dart:mirrors';
 
  //Tod estrictamente relacionado a los animales
@@ -42,5 +43,15 @@ void main() {
   batman.caminar();
   batman.volar();
 
-}
+  final donald = Pato();
+  donald.nada();
+  donald.caminar();
+  donald.volar();
 
+}
+/*
+Si la clase extiende de otra, hereda todas las propiedades de otra
+Mixin dar cierta funcionalidad extra a las clases  (son un tipo de especializacion a nuestras clases)
+Al ver la palabra with podemos asociarla a los mixin, with = mixin 
+
+*/

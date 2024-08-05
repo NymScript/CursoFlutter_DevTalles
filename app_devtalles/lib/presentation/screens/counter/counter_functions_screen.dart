@@ -54,63 +54,38 @@ class _CounterFunctionsScreenState extends State<CounterFunctionsScreen> {
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-              
-              FloatingActionButton(
-              shape: const StadiumBorder(),
-              onPressed: (
-              ) {
-                clickCounter = 0;
-                setState(() {
-                  
-                });
-              },
-              backgroundColor: Colors.blue,
-              child: const Icon(
-                Icons.refresh_outlined,
-                color: Colors.white,
-              ),
-            ),
-
-            const SizedBox(height: 10),
-
-            FloatingActionButton(
-              //shape hace el botton circular
-              shape: const StadiumBorder(),
-              onPressed:(
-              ) {
-                clickCounter++;
-                setState(() {
-                  
-                });
-              },
-              backgroundColor: Colors.blue,
-              child: const Icon(
-                Icons.plus_one_outlined,
-                color: Colors.white,
-              ),
-            ),
-
-            //Separación de botones
-            const SizedBox(height: 10),
-
-            FloatingActionButton(
-              shape: const StadiumBorder(),
-              onPressed: (
-              ) {
-                clickCounter--;
-                setState(() {
-                  
-                });
-              },
-              backgroundColor: Colors.blue,
-              child: const Icon(
-                Icons.exposure_minus_1_outlined,
-                color: Colors.white,
-              ),
-            ),
-   
+          
+            CustomButton(icon: Icons.refresh_outlined),
+            const SizedBox(height:10),
+            CustomButton( icon: Icons.exposure_minus_1_outlined),
+            const SizedBox(height:10),
+            CustomButton( icon: Icons.plus_one),
           ],
         )
       );
+  }
+}
+
+//Optimizamos el codigo para que los botones no esten separados ya que cumplen la misma funcion pero tienen diferentes exepciones
+class CustomButton extends StatelessWidget {
+
+  final IconData icon;
+
+  const CustomButton({
+    super.key,
+    required this.icon,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      //shape hace el botton circular
+      shape: const StadiumBorder(),
+      onPressed:(
+      ) {},
+      backgroundColor: Colors.blue,
+      child: Icon(icon,
+      color: Colors.white),
+    );
   }
 }

@@ -3,16 +3,16 @@
 import 'package:flutter/material.dart';
 //impm + tap
 
-class CounterScreen extends StatefulWidget {
+class CounterFunctionsScreen extends StatefulWidget {
 
-  const CounterScreen({super.key});
+  const CounterFunctionsScreen({super.key});
 
-  //Va a mandar a lamar ala incovacion de estado
+  //Va a mandar a llamar a la invocación de estado
   @override
-  State<CounterScreen> createState() => _CounterScreenState();
+  State<CounterFunctionsScreen> createState() => _CounterFunctionsScreenState();
 }
 
-class _CounterScreenState extends State<CounterScreen> {
+class _CounterFunctionsScreenState extends State<CounterFunctionsScreen> {
 
   int clickCounter = 0;
   
@@ -21,7 +21,22 @@ class _CounterScreenState extends State<CounterScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: const Text('Counter Screen', style: TextStyle(color: Color.fromARGB(255, 245, 242, 242)),),
+        title: const Text('Counter Functions',
+         style: TextStyle(color: Color.fromARGB(255, 245, 242, 242)),
+         ),
+
+         //Función de refresh
+        actions: [
+          IconButton(
+            color: Colors.white,
+            icon: const Icon(Icons.refresh_rounded),
+            onPressed: (){
+              setState(() {
+                clickCounter = 0;
+              });
+            }),
+          ],
+
       ),
       body: Center(
         child: Column(
@@ -29,20 +44,10 @@ class _CounterScreenState extends State<CounterScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('$clickCounter',
-               style: TextStyle(fontSize: 160, fontWeight: FontWeight.w100),),
+                style: const TextStyle(
+                fontSize: 160, fontWeight: FontWeight.w100),),
             
             Text('Click${ clickCounter == 1 ? '':'s' }', style: TextStyle(fontSize: 25))
-
-            /*
-            Otra solución es usar if, pero ojo que no se puede usar if, else
-
-            if( clickCounter == 1)
-            const Text('Click', style: TextStyle (fontSize: 25)),
-
-            if( clickCounter != 1)
-            const Test('Clicks', style: TextStyle(fontSize: 25)),
-
-             */
 
           ],
         ),

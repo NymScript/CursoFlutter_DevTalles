@@ -54,12 +54,42 @@ class _CounterFunctionsScreenState extends State<CounterFunctionsScreen> {
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-          
-            CustomButton(icon: Icons.refresh_outlined),
+            CustomButton(
+              icon: Icons.refresh_outlined,
+              onPressed: () {
+              setState(() {
+                clickCounter = 0;
+                setState(() {
+                  
+                });
+              });
+            },
+            
+            ),
             const SizedBox(height:10),
-            CustomButton( icon: Icons.exposure_minus_1_outlined),
+            CustomButton( 
+              icon: Icons.exposure_minus_1_outlined,
+              onPressed: () {
+                clickCounter --;
+                setState(() {
+                  
+                  }
+                );
+              },
+              
+              ),
             const SizedBox(height:10),
-            CustomButton( icon: Icons.plus_one),
+            CustomButton( 
+              icon: Icons.plus_one,
+               onPressed: () {
+                clickCounter ++;
+                setState(() {
+                  
+                  }
+                );
+              },
+              
+              ),
           ],
         )
       );
@@ -68,12 +98,14 @@ class _CounterFunctionsScreenState extends State<CounterFunctionsScreen> {
 
 //Optimizamos el codigo para que los botones no esten separados ya que cumplen la misma funcion pero tienen diferentes exepciones
 class CustomButton extends StatelessWidget {
-
   final IconData icon;
+  final VoidCallback? onPressed;
+  
 
   const CustomButton({
     super.key,
     required this.icon,
+    this.onPressed,
   });
 
   @override
@@ -81,8 +113,7 @@ class CustomButton extends StatelessWidget {
     return FloatingActionButton(
       //shape hace el botton circular
       shape: const StadiumBorder(),
-      onPressed:(
-      ) {},
+      onPressed: onPressed,
       backgroundColor: Colors.blue,
       child: Icon(icon,
       color: Colors.white),
